@@ -67,11 +67,6 @@ function App() {
         selectedId={selectedId}
         onSelect={selectNote}
         onCreate={handleCreate}
-        colors={{
-          primary: '#1976d2',
-          secondary: '#424242',
-          accent: '#ffc107',
-        }}
       />
       <main className="editor-area">
         {selectedNote ? (
@@ -80,11 +75,6 @@ function App() {
             note={selectedNote}
             onChange={(fields) => handleSave(selectedNote.id, fields)}
             onDelete={() => handleDelete(selectedNote.id)}
-            colors={{
-              primary: '#1976d2',
-              secondary: '#424242',
-              accent: '#ffc107',
-            }}
           />
         ) : (
           <div className="empty-state">

@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
  * PUBLIC_INTERFACE
  * Sidebar showing brand, search, and a list of notes.
  */
-function NotesSidebar({ notes, query, onQueryChange, selectedId, onSelect, onCreate, colors }) {
+function NotesSidebar({ notes, query, onQueryChange, selectedId, onSelect, onCreate }) {
   return (
-    <aside className="sidebar" style={{ '--primary': colors.primary, '--accent': colors.accent, '--secondary': colors.secondary }}>
+    <aside className="sidebar">
       <div className="brand">
         <div className="logo" aria-hidden="true" />
         <h1>Quick Notes</h1>
@@ -72,16 +72,10 @@ NotesSidebar.propTypes = {
   selectedId: PropTypes.string,
   onSelect: PropTypes.func.isRequired,
   onCreate: PropTypes.func.isRequired,
-  colors: PropTypes.shape({
-    primary: PropTypes.string,
-    secondary: PropTypes.string,
-    accent: PropTypes.string,
-  }),
 };
 
 NotesSidebar.defaultProps = {
   selectedId: null,
-  colors: { primary: '#1976d2', secondary: '#424242', accent: '#ffc107' },
 };
 
 export default NotesSidebar;

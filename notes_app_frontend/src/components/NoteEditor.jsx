@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
  * Rich but simple editor for a single note (title + content).
  * Emits changes up for persistence with debounce.
  */
-function NoteEditor({ note, onChange, onDelete, colors }) {
+function NoteEditor({ note, onChange, onDelete }) {
   const [title, setTitle] = useState(note.title || '');
   const [content, setContent] = useState(note.content || '');
   const debounceRef = useRef(null);
@@ -29,7 +29,7 @@ function NoteEditor({ note, onChange, onDelete, colors }) {
   const created = new Date(note.createdAt).toLocaleString();
 
   return (
-    <section className="editor-card" style={{ '--primary': colors.primary, '--accent': colors.accent, '--secondary': colors.secondary }}>
+    <section className="editor-card">
       <div className="editor-toolbar">
         <div className="toolbar-left" aria-label="Note meta">
           <span className="btn btn-ghost" title={`Created: ${created}`}>Created: {created}</span>
@@ -70,15 +70,8 @@ NoteEditor.propTypes = {
   }).isRequired,
   onChange: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
-  colors: PropTypes.shape({
-    primary: PropTypes.string,
-    secondary: PropTypes.string,
-    accent: PropTypes.string,
-  }),
 };
 
-NoteEditor.defaultProps = {
-  colors: { primary: '#1976d2', secondary: '#424242', accent: '#ffc107' },
-};
+NoteEditor.defaultProps = {};
 
 export default NoteEditor;
