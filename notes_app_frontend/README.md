@@ -1,82 +1,58 @@
-# Lightweight React Template for KAVIA
+# Quick Notes - Minimalistic React Notes App
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A fast, modern notes app built with React and vanilla CSS. It supports creating, editing, deleting, listing, and searching notes with a responsive sidebar + editor layout.
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- Create, edit, delete notes
+- List and search notes
+- Minimalistic, modern UI
+- Light theme with primary/accent/secondary colors
+- Responsive layout (sidebar + editor)
+- Floating action button for quick note creation
+- Local persistence via localStorage (no backend required)
 
 ## Getting Started
 
-In the project directory, you can run:
+Install and run:
 
-### `npm start`
-
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
+```bash
+npm install
+npm start
 ```
 
-### Components
+Open http://localhost:3000
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+## Configuration
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+This app uses environment variables for storage keys (optional). Copy `.env.example` to `.env` to customize:
 
-## Learn More
+```
+REACT_APP_STORAGE_KEY=quick-notes__v1
+REACT_APP_SELECTED_KEY=quick-notes__selected
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Note: Do not commit `.env`.
 
-### Code Splitting
+## Tech
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- React 18
+- Vanilla CSS (no UI library)
+- localStorage for persistence
 
-### Analyzing the Bundle Size
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- `src/components/NotesSidebar.jsx` - notes list + search + quick create
+- `src/components/NoteEditor.jsx` - editor for title/content + delete
+- `src/hooks/useLocalNotes.js` - localStorage CRUD and selection
+- `src/utils/notesUtils.js` - id generation and filtering
 
-### Making a Progressive Web App
+## Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- All data is stored in your browser. Clearing storage will remove notes.
+- The UI colors are set to:
+  - primary: `#1976d2`
+  - secondary: `#424242`
+  - accent: `#ffc107`
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Enjoy taking notes!
